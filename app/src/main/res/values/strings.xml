@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CatsVsDogs</string>
+    <string name="start">Start</string>
+    <string name="first_player">First player</string>
+    <string name="second_name">Second name</string>
+    <string name="first_name">First name</string>
 </resources>

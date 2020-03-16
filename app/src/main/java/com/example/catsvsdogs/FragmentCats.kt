@@ -17,14 +17,6 @@ class FragmentCats : Fragment() {
         return inflater.inflate(R.layout.activity_fragment_cats, container, false)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -32,7 +24,7 @@ class FragmentCats : Fragment() {
 
         clickCats.setOnClickListener {
             DataStorage.instance.player1Points += 1
-            textCats.text = DataStorage.instance.player1Name
+            textCats.text = DataStorage.instance.player1Points.toString()
         }
     }
 

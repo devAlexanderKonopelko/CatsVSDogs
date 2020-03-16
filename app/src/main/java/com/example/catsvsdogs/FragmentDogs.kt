@@ -24,7 +24,7 @@ class FragmentDogs : Fragment() {
 
         clickDogs.setOnClickListener {
             DataStorage.instance.player2Points += 1
-            textDogs.text = DataStorage.instance.player2Name
+            textDogs.text = DataStorage.instance.player2Points.toString()
 
         }
     }

@@ -12,7 +12,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+
         startButton.setOnClickListener {
+
+
             DataStorage.instance.player1Name = firstName.text.toString()
             DataStorage.instance.player2Name = secondName.text.toString()
             firstName.text?.clear()

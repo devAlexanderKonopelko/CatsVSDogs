@@ -7,7 +7,7 @@
     tools:context=".FragmentDogs">
 
     <Button
-        android:id="@+id/clickDogs"
+        android:id="@+id/clickCats"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:text="@string/click"

@@ -43,16 +43,22 @@ class FinishFragment : Fragment(), View.OnClickListener {
                         instance.player1Points.toString()
             }
         }
+
+        startAgainFinish.setOnClickListener(this)
+        historyFinish.setOnClickListener(this)
     }
 
     @Override
     override fun onClick(v: View?) {
         when (v?.id) {
             historyFinish.id -> {
-
+                val intent = Intent(activity, HistoryActivity::class.java)
+                startActivity(intent)
             }
             startAgainFinish.id -> {
 
+                val intent = Intent(activity, MainActivity::class.java)
+                startActivity(intent)
             }
         }
     }

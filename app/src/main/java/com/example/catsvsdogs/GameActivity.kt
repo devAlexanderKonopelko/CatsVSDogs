@@ -13,7 +13,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     private val fragmentDogs = FragmentDogs()
     private val fragmentTimer = FragmentTimer()
     private val fragmentFinish = FinishFragment()
-    private var time = 3
+    private var time = 15
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +25,9 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             startGameButton.id -> {
+                DataStorage.instance.player1Points = 0
+                DataStorage.instance.player2Points = 0
+
                 supportFragmentManager.beginTransaction().replace(fragmentCatsWidget.id, fragmentCats)
                     .commit()
 
@@ -65,6 +68,10 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
             supportFragmentManager.beginTransaction().replace(fragmentFinishWidget.id, fragmentFinish)
                 .commit()
+
+            val instance = DataStorage.instance
+            instance.addHistory(instance.player1Name.toString(), instance.player1Points)
+            instance.addHistory(instance.player2Name.toString(), instance.player2Points)
         }
     }
 }

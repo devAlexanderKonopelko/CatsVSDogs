@@ -7,7 +7,7 @@
     tools:context=".FragmentDogs">
 
     <Button
-        android:id="@+id/clickDogs"
+        android:id="@+id/clickCats"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:text="@string/click"
@@ -22,7 +22,7 @@
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_marginBottom="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/clickDogs"
+        app:layout_constraintBottom_toTopOf="@+id/clickCats"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

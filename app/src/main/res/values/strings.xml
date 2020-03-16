@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">CatsVsDogs</string>
+    <string name="finish_fragment_title">Winner</string>
+    <string name="finish_fragment_history">Leader Board</string>
+    <string name="finish_fragment_start">Play again</string>
+    <string name="finish_fragment_winner_name">Winner Name</string>
+    <string name="finish_fragment_winner_score">Winner Score</string>
     <string name="click">Click</string>
 </resources>

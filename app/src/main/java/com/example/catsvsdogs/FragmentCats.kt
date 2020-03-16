@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.activity_fragment_cats.*
+import kotlinx.android.synthetic.main.activity_fragment_dogs.*
 
 class FragmentCats : Fragment() {
     override fun onCreateView(
@@ -15,5 +17,23 @@ class FragmentCats : Fragment() {
         return inflater.inflate(R.layout.activity_fragment_cats, container, false)
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        playerCats.text = DataStorage.instance.player1Name
+
+        clickCats.setOnClickListener {
+            DataStorage.instance.player1Points += 1
+            textCats.text = DataStorage.instance.player1Name
+        }
+    }
 
 }

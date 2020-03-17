@@ -42,10 +42,10 @@
     <ImageView
         android:id="@+id/animationsCats"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="120dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
         app:layout_constraintTop_toBottomOf="@+id/textCats" />
 
 

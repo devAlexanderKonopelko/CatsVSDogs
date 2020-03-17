@@ -47,19 +47,18 @@
                 android:id="@+id/fragmentCatsWidget"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="42"/>
-
+                android:layout_weight="45"/>
             <FrameLayout
                 android:id="@+id/fragmentTimerWidget"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="16"
+                android:layout_weight="10"
                 android:layout_gravity="center_horizontal"/>
             <FrameLayout
                 android:id="@+id/fragmentDogsWidget"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="42"/>
+                android:layout_weight="45"/>
 
         </LinearLayout>
 

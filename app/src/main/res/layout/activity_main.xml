@@ -9,33 +9,27 @@
     <ImageView
         android:id="@+id/main_logo"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/catLog"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/cat"
-        app:layout_constraintBottom_toTopOf="@+id/secondName"
-        app:layout_constraintEnd_toStartOf="@+id/firstName"
-         />
-
-    <ImageView
-        android:id="@+id/dogLog"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/dog"
-        app:layout_constraintBottom_toTopOf="@+id/startButton"
-        app:layout_constraintEnd_toStartOf="@+id/secondName" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/catsvsdogs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_logo" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="@string/enter_players"
         android:textColor="#111"
         android:textSize="30sp"
@@ -43,38 +37,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_logo" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondName" />
+    <ImageView
+        android:id="@+id/catLog"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/cat"
+        app:layout_constraintBottom_toTopOf="@+id/secondNameContainer"
+        app:layout_constraintEnd_toStartOf="@+id/firstNameContainer" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/firstName"
-        android:layout_width="200dp"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firstNameContainer"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="@string/first_name"
-        android:layout_marginTop="80dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstName"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/first_name"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputEditText>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/secondName"
-        android:layout_width="200dp"
+    <ImageView
+        android:id="@+id/dogLog"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/dog"
+        app:layout_constraintEnd_toStartOf="@+id/secondNameContainer"
+        app:layout_constraintTop_toBottomOf="@+id/catLog" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/secondNameContainer"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="@string/second_name"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstName">
+        app:layout_constraintTop_toBottomOf="@+id/firstNameContainer">
 
-    </com.google.android.material.textfield.TextInputEditText>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/secondName"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/second_name" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/startButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/start"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 

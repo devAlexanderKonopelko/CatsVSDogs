@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.activity_fragment_cats.*
 
 
 class FragmentCats : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,6 +27,7 @@ class FragmentCats : Fragment() {
 
         clickCats.setOnClickListener {
             DataStorage.instance.player1Points += 1
+
             textCats.text = DataStorage.instance.player1Name
 
 
@@ -36,6 +36,9 @@ class FragmentCats : Fragment() {
                 rocketAnimation = background as AnimationDrawable
             }
             rocketAnimation.start()
+
+            textCats.text = DataStorage.instance.player1Points.toString()
+
         }
     }
 }

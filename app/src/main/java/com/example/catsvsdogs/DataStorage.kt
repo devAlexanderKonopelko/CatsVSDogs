@@ -30,4 +30,12 @@ class DataStorage {
         if (newPlayer)
             list.add(History(name, points, 1))
     }
+
+    fun getHistoryList(): ArrayList<String> {
+        val historyList = ArrayList<String>()
+        list.forEach {
+            historyList.add(it.name + ": " + it.maxPoints.toString())
+        }
+        return historyList
+    }
 }

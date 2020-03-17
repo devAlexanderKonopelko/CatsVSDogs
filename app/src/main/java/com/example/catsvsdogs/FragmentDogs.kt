@@ -24,16 +24,16 @@ class FragmentDogs : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         playerDogs.text = DataStorage.instance.player2Name
-        animationsDogs
+
+        val rocketImage = animationsDogs.apply {
+            setBackgroundResource(R.drawable.dogdog)
+            rocketAnimation = background as AnimationDrawable
+        }
+        rocketAnimation.start()
+
         clickDogs.setOnClickListener {
             DataStorage.instance.player2Points += 1
             textDogs.text = DataStorage.instance.player2Points.toString()
-
-            val rocketImage = animationsDogs.apply {
-                setBackgroundResource(R.drawable.dogdog)
-                rocketAnimation = background as AnimationDrawable
-            }
-            rocketAnimation.start()
         }
 
     }

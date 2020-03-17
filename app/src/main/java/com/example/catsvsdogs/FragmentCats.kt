@@ -25,17 +25,14 @@ class FragmentCats : Fragment() {
 
         playerCats.text = DataStorage.instance.player1Name
 
+        val rocketImage = animationsCats.apply {
+            setBackgroundResource(R.drawable.catcat)
+            rocketAnimation = background as AnimationDrawable
+        }
+        rocketAnimation.start()
+
         clickCats.setOnClickListener {
             DataStorage.instance.player1Points += 1
-
-            textCats.text = DataStorage.instance.player1Name
-
-
-            val rocketImage = animationsCats.apply {
-                setBackgroundResource(R.drawable.catcat)
-                rocketAnimation = background as AnimationDrawable
-            }
-            rocketAnimation.start()
             textCats.text = DataStorage.instance.player1Points.toString()
         }
     }

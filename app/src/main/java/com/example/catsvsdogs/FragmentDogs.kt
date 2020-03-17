@@ -21,7 +21,7 @@ class FragmentDogs : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         playerDogs.text = DataStorage.instance.player2Name
-
+        animationsDogs
         clickDogs.setOnClickListener {
             DataStorage.instance.player2Points += 1
             textDogs.text = DataStorage.instance.player2Points.toString()

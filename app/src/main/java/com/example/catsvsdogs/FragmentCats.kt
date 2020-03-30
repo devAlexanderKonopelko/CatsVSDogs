@@ -37,6 +37,7 @@ class FragmentCats : Fragment() {
             }
             rocketAnimation.start()
 
+
             textCats.text = DataStorage.instance.player1Points.toString()
 
         }

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_game.*
 import kotlinx.android.synthetic.main.timer_fragment_layout.*
+import kotlinx.coroutines.*
 
 class GameActivity : AppCompatActivity(), View.OnClickListener {
     private val fragmentCats = FragmentCats()
@@ -28,50 +29,71 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
                 DataStorage.instance.player1Points = 0
                 DataStorage.instance.player2Points = 0
 
-                supportFragmentManager.beginTransaction().replace(fragmentCatsWidget.id, fragmentCats)
+                supportFragmentManager.beginTransaction()
+                    .replace(fragmentCatsWidget.id, fragmentCats)
                     .commit()
 
-                supportFragmentManager.beginTransaction().replace(fragmentTimerWidget.id, fragmentTimer)
+                supportFragmentManager.beginTransaction()
+                    .replace(fragmentTimerWidget.id, fragmentTimer)
                     .commit()
 
-                supportFragmentManager.beginTransaction().replace(fragmentDogsWidget.id, fragmentDogs)
+                supportFragmentManager.beginTransaction()
+                    .replace(fragmentDogsWidget.id, fragmentDogs)
                     .commit()
 
                 startGameButton.visibility = View.INVISIBLE
 
-                val timer = object: CountDownTimer((time*1000).toLong(), 1000) {
-                    override fun onFinish() {
-                        time = 0
-                        finishGame()
-                    }
-
-                    override fun onTick(millisUntilFinished: Long) {
-                        fragmentTimer.timerView.text = "$time"
-                        time--
-                    }
-
-                }.start()
+                CoroutineScope(Dispatchers.IO).launch {
+                    startTimer()
+                }
             }
         }
     }
 
-    private fun finishGame() {
-        if (time == 0) {
-            supportFragmentManager.beginTransaction().remove(fragmentCats)
-                .commit()
-
-            supportFragmentManager.beginTransaction().remove(fragmentTimer)
-                .commit()
-
-            supportFragmentManager.beginTransaction().remove(fragmentDogs)
-                .commit()
-
-            supportFragmentManager.beginTransaction().replace(fragmentFinishWidget.id, fragmentFinish)
-                .commit()
-
-            val instance = DataStorage.instance
-            instance.addHistory(instance.player1Name.toString(), instance.player1Points)
-            instance.addHistory(instance.player2Name.toString(), instance.player2Points)
+    private suspend fun startTimer() {
+//        val timer = object: CountDownTimer((time*1000).toLong(), 1000) {
+//            override fun onFinish() {
+//                time = 0
+//                finishGame()
+//            }
+//
+//            override fun onTick(millisUntilFinished: Long) {
+//                fragmentTimer.timerView.text = "$time"
+//                time--
+//            }
+//
+//        }.start()
+        delay(1000)
+        while (time >= 0) {
+            withContext(Dispatchers.Main) {
+                fragmentTimer.timerView.text = "$time"
+            }
+            withContext(Dispatchers.IO) {
+                time--
+                delay(1000)
+            }
         }
+
+        withContext(Dispatchers.Main) {
+            finishGame()
+        }
+    }
+
+    private fun finishGame() {
+        supportFragmentManager.beginTransaction().remove(fragmentCats)
+            .commit()
+
+        supportFragmentManager.beginTransaction().remove(fragmentTimer)
+            .commit()
+
+        supportFragmentManager.beginTransaction().remove(fragmentDogs)
+            .commit()
+
+        supportFragmentManager.beginTransaction().replace(fragmentFinishWidget.id, fragmentFinish)
+            .commit()
+
+        val instance = DataStorage.instance
+        instance.addHistory(instance.player1Name.toString(), instance.player1Points)
+        instance.addHistory(instance.player2Name.toString(), instance.player2Points)
     }
 }

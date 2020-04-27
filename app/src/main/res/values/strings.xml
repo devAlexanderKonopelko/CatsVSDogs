@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CatsVsDogs</string>
+    <string name="app_name">Cats Vs Dogs</string>
     <string name="start">Start</string>
     <string name="first_player">First player</string>
     <string name="second_name">Second player</string>

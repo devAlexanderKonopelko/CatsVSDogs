@@ -11,8 +11,6 @@ class DataStorage {
     var player2Name: String? = null
     var player2Points: Int = 0
 
-    var statusPlay: Int = 0
-
     companion object {
         val instance = DataStorage()
     }
@@ -33,6 +31,9 @@ class DataStorage {
 
     fun getHistoryList(): ArrayList<String> {
         val historyList = ArrayList<String>()
+        list.sortByDescending {
+            it.maxPoints
+        }
         list.forEach {
             historyList.add(it.name + ": " + it.maxPoints.toString())
         }

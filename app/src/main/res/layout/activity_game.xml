@@ -70,11 +70,14 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/startGameButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
 
             android:layout_gravity="center"
-            android:src="@drawable/play_button_image"/>
+            app:srcCompat="@drawable/play_button_image"
+            app:fabCustomSize="70dp"
+            app:tint="@color/colorPrimary"
+            app:backgroundTint="#FFF"/>
 
     </FrameLayout>
 

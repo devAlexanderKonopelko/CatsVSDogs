@@ -17,11 +17,12 @@ class HistoryActivity : AppCompatActivity() {
             ArrayAdapter<String>(this, R.layout.history_item, DataStorage.instance.getHistoryList())
         listViewWidget.adapter = adapter
 
-        listViewWidget.onItemClickListener =
-            AdapterView.OnItemClickListener { parent, view, position, id ->
-                val intent = Intent(view?.context, HistoryActivity::class.java)
-                intent.putExtra("NAME", parent?.getItemAtPosition(position).toString())
-                startActivity(intent)
-            }
+        // открывает ту же активити ещё раз без изменений.
+//        listViewWidget.onItemClickListener =
+//            AdapterView.OnItemClickListener { parent, view, position, id ->
+//                val intent = Intent(view?.context, HistoryActivity::class.java)
+//                intent.putExtra("NAME", parent?.getItemAtPosition(position).toString())
+//                startActivity(intent)
+//            }
     }
 }

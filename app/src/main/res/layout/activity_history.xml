@@ -24,4 +24,18 @@
         android:layout_margin="20dp"
         app:layout_constraintTop_toBottomOf="@+id/titleFinish" />
 
+    <RelativeLayout
+        android:id="@+id/advertContainerFinish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#20000000">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Advertisement"
+            android:layout_margin="30dp"/>
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
